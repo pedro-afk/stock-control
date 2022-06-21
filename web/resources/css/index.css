@@ -1,0 +1,117 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 18, 2022, 12:40:28 PM
+    Author     : Pedro
+*/
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 18, 2022, 12:40:28 PM
+    Author     : Pedro  
+*/
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Press+Start+2P&family=Roboto:wght@100&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+table {
+    width: 45%;
+    height: 100px;
+    font-weight: bold;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.control-inputs{
+    box-shadow:  10px 10px 0px #383838;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 15px;
+    background: #617fba;
+    border-radius: 10px;
+}
+
+h1{ 
+    color: white; 
+}
+
+label{
+    color: white;
+    font-size: 18px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #FFF;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button:focus, input:focus {
+    outline: 0;
+}
+
+.botao-gravar {
+    border: 2px solid white;
+    border-radius: 50px;
+    margin-top: 10px;
+    width: 40%;
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}   
+
+.botao-alterar {
+    cursor: pointer;
+    background-color: #88e37b;
+}
+
+.botao-excluir {
+    cursor: pointer;
+    background-color: #f24f44;
+}
+
+.botao-alterar:hover {
+    transition: 0.2s;
+    background-color: green;
+}
+
+.botao-excluir:hover {
+    transition: 0.2s;
+    background-color: red;
+}
+
+.botao-gravar:hover {
+    background-color: #617fba;
+    color: #FFF;
+    transition: 0.2s;
+}
+
+.sucesso {
+    background: #88e37b;
+    padding: 10px;
+    width: 30%;
+}
+
+.erro {
+    background: #fc8187;
+    padding: 20px;
+    width: 30%;
+}

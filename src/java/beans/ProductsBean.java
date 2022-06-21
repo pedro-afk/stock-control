@@ -10,31 +10,53 @@ import models.Products;
 
 public class ProductsBean {
 
-    private Products l;
+    private Products p;
 
     public ProductsBean() {
-        l = new Products();
-
+        p = new Products();
     }
 
-    public Products getL() {
-        return l;
+    public Products getP() {
+        return p;
     }
 
-    public void setL(Products l) {
-        this.l = l;
+    public void setP(Products prod) {
+        this.p = prod;
     }
 
-    public String executaGravacao() {
-        if (l.gravar()) {
-            return "/mensagemSucesso";
+    public void executaGravacao() {
+        if (p.gravar()) {
+            // return "/sucesso";
+            System.out.println("Operação relaizada com êxito");
         } else {
-            return "/mensagemErro";
+            System.out.println("Operação relaizada com erro");
+            // return "/erro";
         }
     }
 
-    public List<Products> buscarLivros() {
-        return l.getProducts();
+    public List<Products> buscarProducts() {
+        return p.getProducts();
     }
+
+    public void deleteProd(int id) {
+
+        if (p.deletaProduto(id)) {
+            System.out.println(id + "parou aqui");
+        } else {
+            System.out.println("Error");
+        }
+    }
+
+    public String alterar(int id) {
+        
+        if(p.alteraProduto(id)){
+            return "/index";
+            
+        }
+        else{
+            return "/erro";
+        }
+    }
+
 
 }
