@@ -1,12 +1,81 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Pagina incial</title>
-        <link type="text/css" href="./index.css">
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
     <h:body>
-        Hello World
+        <div class="container">
+            <h:form class="control-inputs">
+                <h1>Cadastrar produtos</h1>
+                <h:outputLabel value="Nome"/>
+                <h:inputText value="#{products.p.name}"/>
+
+                <h:outputLabel value="Descricao"/>
+                <h:inputText value="#{products.p.description}"/>
+
+                <h:outputLabel value="Preco"/>
+                <h:inputText value="#{products.p.price}"/>
+
+                <h:outputLabel value="Quantidade"/>
+                <h:inputText value="#{products.p.qtd}"/>
+
+                <h:commandButton value="Gravar" class="botao-gravar" action="#{products.executaGravacao()}"/>
+            </h:form>
+
+            <h:dataTable var="prod" value="#{products.buscarProducts()}" border="1" bgcolor="#909090">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.id}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.name}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Descricao"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.description}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Preco"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.price}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Qtd"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.qtd}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Alterar - Excluir"/>
+                    </f:facet>
+                    <h:form class="control-buttons">
+                        <!-- Chamar função de alteração no botao -->
+                        <h:commandButton value="Alterar" class="botao-alterar" action="/alterar"> 
+                            <f:param name="id" value="#{prod.id}" />
+                        </h:commandButton>
+                        <!-- Chamar função de exclusao no botao -->
+                        <h:commandButton value="Excluir" class="botao-excluir" action="#{products.deleteProd(prod.id)}"/>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </div>
     </h:body>
 </html>
 
